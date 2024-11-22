@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      header, footer {
+        background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      header h1 {
+        margin: 0;
+      }
+
+      .main-container {
+        flex: 1;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .content {
+        background-color: white;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      form {
+        display: flex;
+        margin-bottom: 20px;
+      }
+
+      input[type="text"] {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px 0 0 4px;
+        font-size: 16px;
+      }
+
+      button {
+        background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 0 4px 4px 0;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.5s;
+      }
+
+      button:hover {
+        background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+        background-position: right center;
+        color: #fff;
+      }
+
+      p {
+        margin: 10px 0;
+        color: #333;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      
+      td {
+        text-align: left;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        word-wrap: break-word; 
+        word-break: break-all; 
+        white-space: normal; 
+      }
+
+      th {
+        background-color: #f2f2f2;
+        color:#24243e;
+        text-align: left;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+      }
+
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+  </head>
+  <body>
+    <header>
+      <h1>Short URL</h1>
+    </header>
+
+    <div class="main-container">
+      <div class="content">
+        <% if (locals.id) { %>
+          <p><b>URL Generated: 
+              <a href="http://localhost:8001/url/<%= id %>">http://localhost:8001/url/<%= id %></a>
+            </b>
+          </p>
+        <% } else { %>
+          <form method="POST" action="/url">
+            <input type="text" name="url" placeholder="Paste the URL to be shortened" />
+            <button type="submit">Shorten URL</button>
+          </form>
+          <p>ShortURL is a free tool to shorten URLs and generate short links</p>
+          <p>URL shortener allows to create a shortened link making it easy to share</p>
+
+          <% if (locals.urls) { %>
+          <table>
+            <thead>
+              <tr>
+                <th>S. No</th>
+                <th>ShortID</th>
+                <th>Redirect</th>
+                <th>Clicks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% urls.forEach((url, index) => { %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><%= url.shortId %></td>
+                <td><%= url.redirectURL %></td>
+                <td><%= url.visitHistory.length %></td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+          <% } %>
+        <% } %>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2024 URL Shortener. All rights reserved.
+    </footer>
+  </body>
+</html>

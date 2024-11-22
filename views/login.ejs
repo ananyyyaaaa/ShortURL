@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      label {
+        font-weight: bold;
+      }
+
+      body {
+        background: #f0f0f0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+      }
+
+      header,
+      footer {
+        background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        z-index: 10;
+      }
+
+      header {
+        top: 0;
+      }
+
+      footer {
+        bottom: 0;
+      }
+
+      header h1,
+      footer p {
+        margin: 0;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px; /* Matches the margin with the signup page */
+        width: 100%;
+      }
+
+      form {
+        background-color: #ffffffe6;
+        padding: 20px; /* Matches padding with the signup page */
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(106, 106, 106, 0.514);
+        width: 320px;
+        border: 2px solid #ccc;
+        margin-top: 80px; /* Adjusted to fit under the header */
+        margin-bottom: 60px; /* Adjusted to fit above the footer */
+      }
+
+      label {
+        color: #242424;
+        display: block;
+        font-weight: bold;
+        font-size: 2.5vh;
+        margin-bottom: 5px;
+        margin-top: 8px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+        font-size: 2.5vh;
+        font-weight: bold;
+        width: 100%;
+        height: 40px;
+        padding: 5px;
+        margin-top: 10px;
+        color: white;
+        border: none;
+        border-radius: 7px;
+        cursor: pointer;
+        transition: 0.5s;
+        text-align: center;
+        text-transform: uppercase;
+        background-size: 200% auto;
+        box-shadow: 0 0 20px #eee;
+      }
+
+      button:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+      }
+    </style>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <header>
+      <h1>Short URL</h1>
+    </header>
+
+    <form action="/user/login" method="post">
+      <h1>LOGIN</h1>
+      <label>Email</label>
+      <input type="text" required name="email" />
+      <label>Password</label>
+      <input type="password" required name="password" />
+      <button type="submit">Login</button><br><br>
+      Not a user? <a href="/Signup">Create Account</a>
+    </form>
+
+    <footer>
+      <p>&copy; 2024 URL Shortener. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
