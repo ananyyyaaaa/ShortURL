@@ -24,6 +24,13 @@ npm install
 ```bash
 nodemon index.js
 ```
+![image](https://github.com/user-attachments/assets/24357c44-24b9-4c31-b0c6-56caeeb50155)
+![image](https://github.com/user-attachments/assets/f095138e-1f31-4934-8757-f328c5acc4bf)
+![image](https://github.com/user-attachments/assets/64ef7097-854f-41af-8bf3-9c277ddd1108)
+![image](https://github.com/user-attachments/assets/5a6f82c8-04ba-4a14-9d8c-e2566b726964)
+
+
+
 
 
 
