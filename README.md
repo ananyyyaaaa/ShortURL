@@ -20,6 +20,10 @@ cd ShortURL
 ```bash
 npm install
 ```
+#### 4. Run the Project
+```bash
+nodemon index.js
+```
 
 
 
